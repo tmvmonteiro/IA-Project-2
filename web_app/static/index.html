@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Porto House Value Estimator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel form-panel">
+        <div class="header-row">
+          <div>
+            <h1>Porto House Value Estimator</h1>
+            <p id="modelMeta">Loading model options...</p>
+          </div>
+        </div>
+
+        <form id="predictionForm">
+          <div class="section-title">Location</div>
+          <div class="grid two">
+            <label>
+              Municipality
+              <select id="Municipality" name="Municipality"></select>
+            </label>
+            <label>
+              Parish
+              <select id="Parish" name="Parish"></select>
+            </label>
+          </div>
+
+          <div class="section-title">Property</div>
+          <div class="grid three">
+            <label>
+              Type
+              <select id="Type" name="Type"></select>
+            </label>
+            <label>
+              Energy certificate
+              <select id="EnergyCertificate" name="EnergyCertificate"></select>
+            </label>
+            <label>
+              Conservation status
+              <select id="ConservationStatus" name="ConservationStatus"></select>
+            </label>
+          </div>
+
+          <div class="section-title">Building Features</div>
+          <div class="grid three">
+            <label>
+              Parking
+              <select id="Parking" name="Parking"></select>
+            </label>
+            <label>
+              Elevator
+              <select id="Elevator" name="Elevator"></select>
+            </label>
+            <label>
+              Floor
+              <select id="Floor" name="Floor"></select>
+            </label>
+          </div>
+
+          <div class="section-title">Areas And Rooms</div>
+          <div class="grid two numeric-grid" id="numericFields"></div>
+          <p class="field-note">
+            Total rooms is the listing's total room count field. Bedrooms is the bedroom-specific count.
+            The source data has many missing room values, so room counts are less reliable than area and location.
+          </p>
+
+          <button type="submit" id="predictButton">Estimate value</button>
+        </form>
+      </section>
+
+      <aside class="panel result-panel">
+        <span class="eyebrow">Predicted property value</span>
+        <div id="prediction" class="prediction">EUR --</div>
+        <div id="status" class="status">Choose the characteristics and run an estimate.</div>
+        <div class="metric-list">
+          <div>
+            <span>Model</span>
+            <strong>StackingRegressor</strong>
+          </div>
+          <div>
+            <span>Training region</span>
+            <strong>Porto district</strong>
+          </div>
+          <div>
+            <span>Notebook R2</span>
+            <strong>0.8641</strong>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
