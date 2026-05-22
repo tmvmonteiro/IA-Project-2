@@ -1,5 +1,7 @@
 # IA-Project-2
 
+![Web app view](docs/image.png)
+
 A web-based machine learning application that predicts residential property values in the Porto district using a stacked ensemble regression model.
 
 ## Project Description
